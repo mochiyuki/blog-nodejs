@@ -3,6 +3,8 @@ const app = express();
 
 const bodyParser = require("body-parser");
 
+const Joi = require("joi");
+
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -105,7 +107,26 @@ app.get("/album/:id", function(req, res) {
 });
 
 app.get("/contact", function(req, res) {
-  res.render("pages/contact");
+  res.render("pages/contact", { page: "Contact", menuId: "contact" });
+});
+
+app.post("/formValidation", function(req, res) {
+  const schema = Joi.object().keys({
+    email: Joi.string()
+      .email({ minDomainAtoms: 2 })
+      .required(),
+    message: Joi.string()
+      .min(10)
+      .max(200)
+      .required()
+  });
+  Joi.validate(req.body, schema, function(err) {
+    if (err) {
+      res.send(err.details[0].message);
+    } else {
+      res.send("message has been sent");
+    }
+  });
 });
 
 const server = app.listen(8000, function() {
