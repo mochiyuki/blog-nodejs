@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <div
+      class="container-fluid"
+      style="background-color: rgba(245, 202, 169, 0.3);"
+    >
+      <h1 class="display-4 text-center"><%= page %></h1>
+
+      <% data.forEach(function(data) { %>
+      <div class="card w-75 mx-auto mt-4">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= data.id + ' : ' + data.title %>
+          </h5>
+          <a
+            href="/article/<%= data.id %>"
+            class="btn btn-primary"
+            style="background-color: rgba(47, 37, 63, 0.7); border:none; float:right;"
+            >See comments
+          </a>
+          <% var index = 0; nbcomments.forEach(function(nbcomments, index){ %>
+          <% if(nbcomments.postId === data.id){ %>
+          <p><%= index = index + 1 %></p>
+          <% } %> <% }) %> <% var count = 0; for(var i=0; i < nbcomments.length;
+          i++) { %> <% if(nbcomments.postId === data.id){ %>
+          <p><%= count = i++ %></p>
+          <% } %> <% } %>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </body>
+  <% include ../partials/scripts %>
+</html>

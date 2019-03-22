@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <div
+      class="container-fluid text-center"
+      style="background-color: rgba(245, 202, 169, 0.3); height:90vh;"
+    >
+      <h1 class="display-4"><%= page %></h1>
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/N5HxbW_OcJI"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+      <p>
+        <small
+          >Exercice 1 with nodejs, ejs template and bootstrap framework</small
+        >
+      </p>
+    </div>
+  </body>
+  <% include ../partials/scripts %>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <div class="container-fluid" style="height:40vh;">
+      <p><strong> <%= info.title %> </strong></p>
+      <p>
+        <%= info.body %>
+      </p>
+    </div>
+    <% comments.forEach(function(comments){ %>
+    <div class="card">
+      <h6><%= comments.name %></h6>
+      <p><small> <%= comments.body %> </small></p>
+      <p><em> <%= comments.email %> </em></p>
+    </div>
+    <% }) %>
+  </body>
+  <% include ../partials/scripts %>
+</html>

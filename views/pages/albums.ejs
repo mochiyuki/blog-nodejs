@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+    <div
+      class="container-fluid text-center"
+      style="background-color: rgba(245, 202, 169, 0.3); height:auto;"
+    >
+      <h1 class="display-4"><%= page %></h1>
+      <div class="container-fluid d-flex flex-wrap justify-content-around">
+        <% albums.forEach(function(album) { %>
+        <div class="card m-2" style="width: 16rem; position:relative;">
+          <img
+            class="card-img-top"
+            src="https://via.placeholder.com/200"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title"><%= album.id +' : '+ album.title %></h5>
+          </div>
+          <div class="card-body">
+            <a
+              href="/album/<%= album.id %>"
+              class="card-link"
+              style="position:absolute; bottom:0; right:0; color: #F0584C;"
+              >See album
+            </a>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+  <% include ../partials/scripts %>
+</html>
