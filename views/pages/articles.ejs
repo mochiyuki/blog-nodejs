@@ -23,13 +23,10 @@
             style="background-color: rgba(47, 37, 63, 0.7); border:none; float:right;"
             >See comments
           </a>
-          <% var index = 0; nbcomments.forEach(function(nbcomments, index){ %>
-          <% if(nbcomments.postId === data.id){ %>
-          <p><%= index = index + 1 %></p>
-          <% } %> <% }) %> <% var count = 0; for(var i=0; i < nbcomments.length;
-          i++) { %> <% if(nbcomments.postId === data.id){ %>
-          <p><%= count = i++ %></p>
-          <% } %> <% } %>
+          <%= nbcomments.length %> <% nbcomments.forEach(function(nbcomments){
+          %> <% if(nbcomments.postId === data.id){ %>
+          <p><%= nbcomments.name %></p>
+          <% } %> <% }) %>
         </div>
       </div>
       <% }); %>
